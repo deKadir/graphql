@@ -17,8 +17,15 @@ query($id:String){
         id,
         title,
         description,
+        year
         director{
-            name
+            name,
+            movies{
+                id,
+                title,
+                description,
+                year
+            }
         }
     }
 }`

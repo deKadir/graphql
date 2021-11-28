@@ -14,16 +14,16 @@ export default function NewMovieForm() {
     const [movie,setMovie] = useState(state);
 const onChange=(event)=>{
     setMovie({...movie,[event.target.name]:event.target.value})
-    console.log(movie);
+ 
 
 }
     return (
-        <Mutation mutation={newMovieMutation}>
+        <Mutation mutation={newMovieMutation} >
             {
                 (addMovie,{loading,error})=>{
                     return <div className="container" data-state="Movie App">
                         <div className="device" data-view="list">
-                    <form onSubmit={e=>{
+                    <form  onSubmit={e=>{
                         e.preventDefault();
                       
                         addMovie({

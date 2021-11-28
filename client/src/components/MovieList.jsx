@@ -29,7 +29,7 @@ const MovieList =(props)=>{
         <div className="container" data-state="Movie App">
             
              <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <Query query={getMovieQuery} variables={{id:"61a22d27e16c2b4e5567097a"}}>
+                <Query query={getMovieQuery} variables={{id:activeId}}>
                 {({loading,error,data})=>{
                    if(loading)
                    return <div>loading...</div>
@@ -38,6 +38,18 @@ const MovieList =(props)=>{
                   return      <div>
                       <p>{data.movie.title}</p>
                       <p>{data.movie.description}</p>
+                      <p>{data.movie.year}</p>
+                      <p>{data.movie.director.name}</p>
+                      <ul className="director-list">
+                         
+                          {
+                            data.movie.director.movies.map(movie=> <li> 
+                                <div className="bg"></div>
+                                <div className="title">{movie.title}</div></li>)
+                        }
+                       
+                      </ul>
+                        
                       </div>
                     
                     
